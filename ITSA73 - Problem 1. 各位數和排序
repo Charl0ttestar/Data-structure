@@ -1,0 +1,49 @@
+#include<stdio.h>  
+  
+typedef struct{  
+   int num;  
+   int sum;  
+}Input;  
+  
+int cmp(const void *a, const void *b){
+    /* 先比較各位數和,相等的話再比較整數大小,皆為小到大 */
+    int c = (*(Input*)a).sum - (*(Input*)b).sum;  
+    if(c==0)  
+      return (*(Input*)a).num - (*(Input*)b).num;  
+    else  
+      return c;  
+}  
+  
+int main(){  
+  int N,temp,i;
+  
+  /* 有N個整數 */
+  scanf("%d",&N);  
+  Input input[N];
+  
+  /*讀入整數,初始化各整數數字和為0*/
+  for(i=0;i<N;i++){  
+     scanf("%d",&(input[i].num));  
+     input[i].sum = 0;  
+  } 
+  
+  /* 從個位數開始,算各位數的和 */
+  for(i=0;i<N;i++){  
+     temp = input[i].num;  
+     do{  
+        input[i].sum += temp%10;  
+     }while((temp /= 10)>0);
+     /* 當temp/10等於0,表示temp已經到最高位數了*/
+  }
+  
+  /* 排序 */
+  qsort(input,N,sizeof(input[0]),cmp);  
+  
+  /* 印出結果 */
+  for(i=0;i<N-1;i++){  
+    printf("%d ",input[i].num);  
+  }  
+  printf("%d\n",input[i].num);  
+  
+  return 0;  
+}  
