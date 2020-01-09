@@ -1,0 +1,39 @@
+#include<stdio.h>  
+#include<string.h> 
+
+/* 幾A幾B的遊戲 */
+
+int main(){  
+  /* input[0]是答案, input[1]是猜的數字 */
+  char input[2][5];  
+  int j,k,A,B;  
+  
+  scanf("%s",input[0]);  
+  
+  while(1){  
+    scanf("%s",input[1]);  
+  
+    /* 輸入0000表示結束 */
+    if(strcmp(input[1],"0000")==0)  
+        break;  
+  
+    A=0; B=0;  
+    for(j=0;j<4;j++){  
+        if(input[0][j]==input[1][j]){  
+            A++;
+            /* 位置同數字也同,將此位置標記為已判斷過 */
+            input[1][j] = 'T';  
+        }else{  
+            /* 判斷是否有數字同位置不同的情況 */
+            for(k=0;k<4;k++)  
+              if(input[1][k]!='T' && input[0][j]==input[1][k]){  
+                 B++;
+                 /* 將此位置標記為已判斷過 */
+                 input[1][k] = 'T';}  
+        }  
+    }  
+    printf("%dA%dB\n",A,B);  
+  }  
+  
+  return 0;  
+}  
