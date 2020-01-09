@@ -1,0 +1,71 @@
+#include<stdio.h>  
+#include<string.h>  
+  
+  
+int main(){  
+  int num,i;  
+  float cost,tmp,summer,non;  
+  
+  /* 有num筆測資 */
+  scanf("%d",&num);  
+  
+  for(i=0;i<num;i++){  
+  
+    /* 輸入使用度數 */
+    scanf("%f",&cost);  
+  
+    if(cost>120){  
+        
+        /* 大於120度, 先直接算滿120度的費用 */
+        summer = non = 120*2.1;  
+  
+        if(cost>330){  
+           /* 大於330度, 330到120度的費用,直接加滿 */
+            summer += (330-120)*3.02;  
+            non += (330-120)*2.68;  
+  
+            if(cost>500){  
+                /* 大於500度, 500到330度的費用, 直接加滿 */
+                summer += (500-330)*4.39;  
+                non += (500-330)*3.61;  
+  
+                if(cost>700){  
+                  /* 大於700度, 700到500度的費用, 直接加滿 */
+                    summer += (700-500)*4.97;  
+                    non += (700-500)*4.01;  
+                    
+                  /* 700度以上,夏月每度5.63,非夏月每度4.5 */
+                    summer += (cost-700)*5.63;  
+                    non += (cost-700)*4.5;  
+                }  
+                else{  
+                  /* 700到500度間,夏月每度4.97,非夏月每度4.01 */
+                    summer += (cost-500)*4.97;  
+                    non += (cost-500)*4.01;  
+                }  
+            }  
+            else{  
+             /* 500到331度間,夏月每度4.39,非夏月每度3.61 */
+                summer += (cost-330)*4.39;  
+                non += (cost-330)*3.61;  
+            }  
+  
+        }  
+        else{  
+          /* 330到120度間,夏月每度3.02元,非夏月每度2.68元 */
+            summer += (cost-120)*3.02;  
+            non += (cost-120)*2.68;  
+        }  
+    }  
+    else{  
+    /* 120度以下,夏月和非夏月每度皆2.10元 */
+        summer = cost*2.1;  
+        non = cost*2.1;  
+    }  
+  
+    printf("Summer months:%.2f\n",summer);  
+    printf("Non-Summer months:%.2f\n",non);  
+  }  
+  
+  return 0;  
+}  
