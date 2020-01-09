@@ -1,0 +1,49 @@
+#include<stdio.h>  
+#include<stdlib.h>  
+  
+int main(){  
+  
+  int N,i,j,grade,sum,pass,eighty;  
+  
+  /* 讀入測資數 */
+  scanf("%d",&N);  
+  
+  
+  for(i=0;i<N;i++){  
+  
+    sum=0;  pass=0;  eighty=0;  
+    
+    /* 聽力 閱讀 口說 三個成績 */
+    for(j=0;j<3;j++){  
+      scanf("%d",&grade);  
+      
+      if(grade>=80){  
+        sum += grade;  
+        eighty++;  
+        pass++;  
+      }  
+      else if(grade>=60){  
+         sum += grade;  
+         pass++;  
+     }else{  
+         sum += grade;  
+     }  
+   }  
+  
+    
+    if(pass==3||(pass==2&&sum>=220)){  
+       /* 三科全及格,或只有兩科及格但總分>=200, 為通過測驗 */
+        printf("P\n");  
+    }  
+    else if((pass==2&&sum<220)||(pass==1&&eighty==1)){  
+       /* 只有兩科及格且總分<220,或僅一科及格但分數>=80, 可獲得補考機會 */
+        printf("M\n");  
+    }  
+    else{  
+       /* 未能通過測驗 */
+        printf("F\n");  
+    }  
+  
+ }  
+  return 0;  
+} 
