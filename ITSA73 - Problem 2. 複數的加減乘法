@@ -1,0 +1,17 @@
+int main(){  
+  
+  /* 一個複數分成實數和虛數兩部分 */
+  float input1[2],input2[2];  
+  
+  /* 讀入兩個複數 */
+  scanf("%f%f",&input1[0],&input1[1]);  
+  scanf("%f%f",&input2[0],&input2[1]);
+  
+  /* 照運算規則輸出結果 */
+  printf("(%.2f)+(%.2f)i\n",input1[0]+input2[0],input1[1]+input2[1]);  
+  printf("(%.2f)+(%.2f)i\n",input1[0]-input2[0],input1[1]-input2[1]);  
+  printf("(%.2f)+(%.2f)i\n",input1[0]*input2[0]-input1[1]*input2[1],input1[0]*input2[1]+input1[1]*input2[0]);  
+  
+  
+  return 0;  
+} 
