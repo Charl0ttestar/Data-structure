@@ -1,0 +1,36 @@
+#include<stdio.h>  
+#include<stdlib.h>  
+  
+int main(){  
+  
+  char line[1024];  
+  int len,n,i,on;  
+  
+ /* 讀到檔案結尾的話,跳出迴圈 */
+ while(scanf("%s",line)!=EOF){  
+  /* 預設是迴文 */
+  on = 1;  
+  len = strlen(line);  
+  
+  /* 將此行文字分兩半 */
+  if(len%2==1)  
+    n = len/2 + 1;  
+  else  
+    n = len/2;  
+  
+  /* 一邊從頭開始,一邊從尾開始,比較兩邊是否相同 */
+  for(i=0;i<n;i++){  
+    if(line[i]!=line[len-i-1]){  
+        on = 0;  
+        break;  
+    }  
+  }
+  
+  if(on==1)  
+    printf("YES\n");  
+  else  
+    printf("NO\n");  
+ }
+ 
+  return 0;  
+}  
