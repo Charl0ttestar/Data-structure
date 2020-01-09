@@ -1,0 +1,54 @@
+#include<stdio.h>  
+#include<string.h>  
+  
+int cmp(const void *a,const void *b){  
+    return *(char*)a - *(char*)b;  
+}  
+  
+int main(){  
+  char line[1024],rec;  
+  int i,n,m,len,last,sum,max;  
+  
+  /* 有n筆測資 */
+  scanf("%d\n",&n);  
+  
+  for(m=0;m<n;m++){  
+  
+    fgets(line,1024,stdin);  
+    len = strlen(line); 
+    
+    /* 對此行文字進行排列,以便連續加總各個字元的數量 */
+    qsort(line,len,sizeof(line[0]),cmp);
+    
+    /* rec為數量最多的字元, last為當前計算的字元的前一個字元 */
+    last = line[0]; rec=line[0];  
+    sum=1; max=sum;  
+  
+    for(i=1;i<len;i++){  
+    
+        /* 上一個字元和當前字元相同,sum++ */
+        if(last==line[i]){  
+           sum++;  
+        }  
+        else{  
+            /* 上一個字元和當前字元不同,判斷是否更新max */
+            if(max<sum){  
+                max = sum;
+                rec = last;  
+            }  
+            
+            /* 加總新的字元的數量 */
+            last = line[i];  
+            sum = 0;  
+        }  
+    }  
+    /* 比較最後一種字元和max的數量誰大 */
+    if(max<sum)  
+        rec = last;  
+  
+    printf("%c\n",rec);  
+  
+  }  
+  
+  return 0;  
+}  
