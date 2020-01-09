@@ -1,0 +1,72 @@
+#include<stdio.h>  
+#include<stdlib.h>  
+  
+int main(){  
+
+  /* ope用來判斷未知數x先出現還是數字先出現, 預設ope為-3*/
+  int i=0,j=0,ope=-3;  
+  float num[2];  
+  char line[30];  
+  
+  /* 讀到檔案結尾的話,跳出迴圈 */
+  while(scanf("%s",line)!=EOF){
+  /* 每個符號和數字間都有空格,scanf的%s遇到空格和換行會停止讀取 */
+    if(line[0]=='x'){  
+       if(ope==-3)  
+         ope=-2;  
+        /* x在前,ope定為-2 */
+    }  
+    else if(line[0]=='='){  
+        continue;  
+    }  
+    else if(line[0]>='0'&&line[0]<='9'){  
+       if(ope==-3){  
+          ope = -1;
+          /* 數字在前, ope定為-1 */
+        }  
+        num[i] = atof(line);  
+        i++;  
+    }else{
+        /* 讀取運算符號,根據x位置不同,移向取得的符號也不同*/
+        if(line[0]=='+')  
+            ope = 1;  
+        else if(line[0]=='-')  
+            if(ope==-1){  
+                num[1] = num[0];  
+                i--;  
+                ope = 1;  
+            }  
+            else  
+                ope = 0;  
+        else if(line[0]=='*')  
+            ope = 3;  
+        else if(line[0]=='/')  
+            if(ope==-1){  
+                num[1] = num[0];  
+                i--;  
+                ope = 3;  
+            }  
+            else  
+                ope = 2;  
+    }  
+  }  
+  
+  /* 計算未知數x */
+  switch(ope){  
+     case 0:  
+       num[0] = num[1] + num[0];  
+       break;  
+     case 1:  
+       num[0] = num[1] - num[0];  
+       break;  
+     case 2:  
+       num[0] = num[1] * num[0];  
+       break;  
+     case 3:  
+       num[0] = num[1] / num[0];  
+       break;  
+  }  
+  
+  printf("%.1f\n",num[0]);  
+  return 0;  
+}  
