@@ -1,0 +1,52 @@
+#include<stdio.h>  
+#include<stdlib.h> 
+
+int main(){  
+  
+/* letter[52]放A~Z和a~z的數量 */
+char line[110],letter[52];  
+int i,j,num,on;
+
+for(i=0;i<52;i++){  
+    letter[i] = 0;  
+}
+
+/* 讀到檔案結尾的話,跳出迴圈 */
+while(fgets(line,110,stdin)!=NULL){  
+    i = strlen(line);  
+    num = 1;  
+  
+    for(j=0;j<i;j++){  
+        if('A'<=line[j]&&line[j]<='Z'){
+            /* 大寫字母存偶數格,為了先輸出 */
+            letter[2*(line[j]-'A')]++;  
+        }else if('a'<=line[j]&&line[j]<='z'){  
+            /* 小寫字母存奇數格 */
+            letter[2*(line[j]-'a')+1]++;  
+        }else if((line[j]==' '||line[j]==','||line[j]=='.')&&('A'<=line[j+1]&&line[j+1]<='z')){
+            /* num用來計算英文單字個數 */
+            num++;  
+        }  
+    }
+    
+    /* 輸出英文單字個數 */
+    printf("%d\n",num);  
+    
+    /* 將數量>0的字母輸出 */
+    for(i=0;i<52;i++){  
+      if(letter[i]>0){  
+        if(i%2==0){  
+         printf("%c : %d\n",i/2+65,letter[i]);}  
+        else{  
+         printf("%c : %d\n",(i-1)/2+97,letter[i]);}  
+  
+        letter[i] = 0;  
+      }  
+    }  
+}  
+  
+  
+return 0;  
+  
+  
+} 
