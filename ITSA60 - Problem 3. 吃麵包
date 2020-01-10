@@ -1,0 +1,40 @@
+#include<stdio.h>  
+#include<string.h>  
+  
+  
+int main(){  
+  int S,N,M,Q,R;  
+  
+  /* 有S組測資 */
+  scanf("%d",&S);
+  
+  int i,j,k,sum;  
+  
+  for(i=0;i<S;i++){  
+    /* 有N個麵包, 對這N個麵包進行M次測試 */
+    scanf("%d%d",&N,&M);  
+    int bread[N],data[2];
+    
+    for(j=0;j<N;j++){  
+        /* 各個麵包的飽足度 */
+        scanf("%d",&bread[j]);  
+    }  
+    
+    for(j=0;j<M;j++){  
+        sum = 0;  
+        
+        /* 吃了第data[0]個到第data[1]個麵包 */
+        scanf("%d%d",&data[0],&data[1]);
+        
+        /* 計算飽足度 */
+        for(k=data[0]-1;k<data[1];k++){  
+            sum += bread[k];  
+        }  
+        
+        printf("%d\n",sum);
+        
+    }  
+  }  
+  
+  return 0;  
+}  
