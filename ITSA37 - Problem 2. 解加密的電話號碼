@@ -1,0 +1,38 @@
+#include<stdio.h>  
+#include<string.h>  
+#include<stdlib.h>  
+#include<ctype.h>  
+  
+ /* 
+    加密規則:
+    1. 輸入一整數n,以(10-n)的結果作為p,若p為10,則使p變為0
+    2. 將p的值,轉成該數字字元的ascii碼的十進位整數,記作a */
+    3. a + key值,即為加密後的值
+    以 (10-n) 結果為 p , 若 p 的值 10 ，則 p = 0 。
+*/
+  
+int main(){  
+  
+ int k,i,num;  
+ 
+ /* 輸入key值 */
+ scanf("%d",&k);  
+  
+ /* 輸入一連串經過加密的整數 */
+ for(i=0;i<10;i++){  
+   scanf("%d",&num);  
+   
+   /* 逆著編譯規則運算,解出原數字,最後會得到一串電話號碼 */
+   num = num - k;    /* num為a */
+   num = num - 48;   /* 減48(ascii碼的數字0字元),將a從char的數字轉成int的數字,此時num為p */ 
+   if(num==0)  
+      num = 0;       /* num為n */
+   else  
+      num = 10-num;  /* num為n */
+  
+   printf("%d",num);  
+ }  
+ printf("\n");  
+  
+  return 0;  
+}  
