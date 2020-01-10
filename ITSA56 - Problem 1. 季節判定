@@ -1,0 +1,35 @@
+#include<stdio.h>  
+#include<string.h>  
+  
+  
+int main(){  
+  
+  int n,m,i,month;  
+  
+  /* 有n筆測資 */
+  scanf("%d",&n);  
+  
+  for(i=0;i<n;i++){  
+  /* 輸入月份 */
+  scanf("%d",&month);
+  
+  /* 3~5月(除三為1)是春季, 6~8月(除三為2)是夏季, 9~11月((除三為3)是秋季, 12~2月((除三為4或0)是冬季 */
+  m = month/3;  
+  
+  switch(m){  
+    case 0: printf("Winter\n");  
+            break;  
+    case 1: printf("Spring\n");  
+            break;  
+    case 2: printf("Summer\n");  
+            break;  
+    case 3: printf("Autumn\n");  
+            break;  
+    case 4: printf("Winter\n");  
+            break;  
+  }  
+  
+  }  
+  
+  return 0;  
+}
