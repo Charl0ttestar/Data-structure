@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<string.h>
+
+
+int main(){
+
+  int n,a,b,c,m,i,j,on;
+
+  /* 有n筆測資 */
+  scanf("%d",&n);
+
+  for(i=0;i<n;i++){
+     /* 豬的數量, 每7隻一數多a隻, 每11隻一數少b隻, 每17隻一數多c隻 */
+     scanf("%d%d%d",&a,&b,&c);
+
+     j = 1;
+     b = 11-b;  /* 少b隻表示除11餘(11-b) */
+     while(1){
+
+        /* 假設隻數為17的倍數加c */
+        m = 17*j + c;
+        /* 預設後兩條件不成立 */
+        on = 0;
+
+        if(m%11==b)
+            on++;
+        if(m%7==a)
+            on++;
+
+        if(on==2){
+           /* 後兩條件皆成立, 就break, 求最少隻數 */
+           printf("%d\n",m);
+           break;
+        }
+        j++;
+
+     }
+
+  }
+
+  return 0;
+}
