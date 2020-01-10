@@ -1,0 +1,13 @@
+#include<stdio.h>  
+  
+int main(){  
+  
+  float n;  
+  /* 讀到檔案結尾的話,結束 */
+  while(scanf("%f",&n)!=EOF){  
+    /* 1英哩為1.6公里, 將輸入的英哩轉成公里 */
+    printf("%.1f\n",n*1.6);  
+  }  
+  
+  return 0;  
+}  
