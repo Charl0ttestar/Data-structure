@@ -1,0 +1,15 @@
+#include<stdio.h>    
+    
+int main(){    
+    
+  int n1,n2;  
+    
+  /* 輸入兩整數,若讀到檔案結尾則跳出 */  
+  while(scanf("%d%d",&n1,&n2)!=EOF){  
+     /* 輸出總和 */  
+     printf("%d\n",n1+n2);    
+  }    
+    
+ return 0;    
+    
+}  
