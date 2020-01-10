@@ -28,6 +28,7 @@ int main(){
             on++;  
   
         if(on==2){  
+           /* 後兩條件皆成立, 就break, 求最少隻數 */
            printf("%d\n",m);  
            break;  
         }  
