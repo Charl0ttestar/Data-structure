@@ -1,0 +1,31 @@
+#include<stdio.h>  
+#include<string.h>  
+  
+  
+int main(){  
+  int m, N, i, j, k, sum;  
+  
+  /* 有m筆測資 */
+  scanf("%d",&m);  
+  
+  for(i=0;i<m;i++){  
+  
+    sum = 0;
+    
+    /* 輸入N, 計算從1到N之間,可被3整除的數字的總和*/
+    scanf("%d",&N);  
+    /* 計算3的幾倍最接近N */
+    N = N/3;  
+    j = 1;  
+    while(j<=N){  
+        k = j*3;  
+        sum += k;  
+        j++;  
+    }  
+  
+    printf("%d\n",sum);  
+  }  
+  
+  
+  return 0;  
+} 
