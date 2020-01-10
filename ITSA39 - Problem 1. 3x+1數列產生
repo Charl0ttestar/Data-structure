@@ -1,0 +1,32 @@
+#include<stdio.h>  
+  
+int main(){  
+  
+  int n,i;  
+  /* 有n筆測資 */
+  scanf("%d",&n);  
+  
+  for(i=0;i<n;i++){  
+      int data;  
+      /* 輸入一整數 */
+      scanf("%d",&data);
+      /* 該整數作為起始值印出 */
+      printf("%d\n",data); 
+      
+      /* 當data為1時結束 */
+      while(data!=1){
+      
+        /* 若data為偶數,取其一半 ; 若data為奇數,乘3加1*/
+        if(data%2==0)  
+          data = data/2;  
+        else  
+          data = 3*data+1;  
+     
+        printf("%d\n",data);  
+      }  
+      
+  
+  }  
+  
+  return 0;  
+}  
