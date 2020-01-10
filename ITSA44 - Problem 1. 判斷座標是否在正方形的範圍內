@@ -1,0 +1,28 @@
+#include<stdio.h>  
+
+/* 有一正方形,長寬均為100,且起始座標為(0,0) */
+
+int main(){  
+  int n,i,j,k;  
+  
+  /* 有n筆測資 */
+  scanf("%d",&n);  
+  
+  for(i=0;i<n;i++){  
+        int x,y;  
+        /* 讀入一組座標 */
+        scanf("%d%d",&x,&y);  
+        
+        /* 判斷此點是否在正方形內(含邊界) */
+        if(x<=100&&x>=0)  
+            if(y<=100&&y>=0)  
+                printf("inside\n");  
+            else  
+                printf("outside\n");  
+        else  
+            printf("outside\n");  
+  
+  }  
+  
+  return 0;  
+}  
