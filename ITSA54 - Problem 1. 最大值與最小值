@@ -1,0 +1,29 @@
+#include<stdio.h>  
+#include<string.h>  
+  
+  
+int main(){  
+  int n,i,j;  
+  
+  /* 有n筆測資 */
+  scanf("%d",&n);  
+  
+  for(i=0;i<n;i++){  
+    
+      float tmp,max=-2000,min=2000;  
+  
+      /* 每筆測資有十個數字(範圍1000~-1000), 求最大值和最小值*/
+      for(j=0;j<10;j++){  
+         scanf("%f",&tmp);  
+         if(tmp>max)  
+            max = tmp;  
+         if(tmp<min)  
+            min = tmp;  
+      }  
+  
+      printf("maximum:%.2f\n",max);  
+      printf("minimum:%.2f\n",min);  
+  
+    }  
+  return 0;  
+} 
