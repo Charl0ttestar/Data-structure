@@ -1,0 +1,32 @@
+#include<stdio.h>   
+#include<stdlib.h>  
+  
+typedef struct{  
+    int x,y,d;  
+}Dis;  
+  
+int cmp(const void *a, const void *b){  
+    return (*(Dis*)a).d - (*(Dis*)b).d;  
+}  
+  
+int main(){  
+  
+  int n,i;  
+  /* 此村落有n條路 */
+  scanf("%d",&n);  
+  Dis data[n];  
+  
+  for(i=0;i<n;i++){  
+      /* 從某戶人家x到另一戶人家y的距離是d */
+        scanf("%d%d%d",&data[i].x,&data[i].y,&data[i].d);  
+  }  
+  
+  /* 排序,依照距離遠近,由小到大 */
+  qsort(data,n,sizeof(data[0]),cmp);  
+  
+  for(i=0;i<n;i++){  
+    printf("%d %d %d\n",data[i].x,data[i].y,data[i].d);  
+  }  
+  
+  return 0;  
+} 
