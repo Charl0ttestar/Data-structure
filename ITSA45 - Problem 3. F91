@@ -1,0 +1,26 @@
+#include<stdio.h>  
+ 
+  
+int f91(int n){  
+   if(n<=100)  
+        return f91(f91(n+11));  
+   else  
+        return n-10;  
+}  
+  
+int main(){  
+  
+  int n,data,i=0;  
+  
+  /* 有n筆測資 */
+  scanf("%d",&n); 
+  
+  for(i=0;i<n;i++){ 
+        /* 輸入一正整數 */
+        scanf("%d",&data);  
+        /* 印出經過f91遞迴函數計算的結果 */
+        printf("%d\n",f91(data));  
+  }  
+  
+  return 0;  
+} 
