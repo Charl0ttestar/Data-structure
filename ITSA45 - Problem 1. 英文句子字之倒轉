@@ -1,0 +1,32 @@
+#include<stdio.h>
+
+char* reverse_print(int i){
+    char word[15];
+    
+    /* 當讀到檔案結尾時,開始回傳 */
+    if(scanf("%s",word)==EOF){
+        return word;
+    }
+    else{
+    
+        reverse_print(i+1);
+        
+        /* 印出讀入的word */
+        if(i!=0)
+          printf("%s ",word);
+        else
+          printf("%s\n",word);
+        /* 最開始讀入的單字最後輸出,且需要換行 */
+
+        return word;
+    }
+}
+
+
+int main(){
+
+  /* 使用遞迴倒著印出單字 */
+  reverse_print(0);
+
+  return 0;
+}
