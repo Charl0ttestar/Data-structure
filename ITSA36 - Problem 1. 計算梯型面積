@@ -1,0 +1,14 @@
+#include<stdio.h>  
+
+int main(){  
+  
+ float top,bottom,height;  
+ 
+ /* 輸入上底,下底,高 */
+ scanf("%f%f%f",&top,&bottom,&height);
+ 
+ /* 輸出梯形面積, (上底+下底)*高/2 */
+ printf("Trapezoid area:%.1f\n",(top+bottom)*height/2);  
+  
+  return 0;  
+} 
