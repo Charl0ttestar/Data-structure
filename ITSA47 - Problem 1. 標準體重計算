@@ -1,0 +1,34 @@
+#include<stdio.h>  
+  
+int main(){  
+  int n,i,j,k;
+  
+  /* 有n筆測資 */
+  scanf("%d",&n);  
+  
+  for(i=0;i<n;i++){
+  
+        float data;  
+        int gender;  
+        /* 輸入身高 */
+        scanf("%f",&data);  
+        /* 輸入性別 */
+        scanf("%d",&gender);  
+        
+        switch(gender){  
+           /* 男生標準體重 = (身高-80)*0.7 */
+            case 1:  
+                data = (data-80)*0.7;  
+                break;  
+           /* 女生標準體重 = (身高-70)*0.6 */
+            case 2:  
+                data = (data-70)*0.6;  
+                break;  
+  
+        }  
+        
+        printf("%.1f\n",data);  
+  }  
+  
+  return 0;  
+}  
