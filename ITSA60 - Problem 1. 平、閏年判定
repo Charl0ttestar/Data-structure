@@ -1,0 +1,42 @@
+#include<stdio.h>  
+#include<string.h>  
+  
+  
+int main(){  
+  int num,i,year;  
+  
+  /* 輸入測資數 */
+  scanf("%d",&num);  
+  
+  for(i=0;i<num;i++){  
+    /* 輸入年份 */   
+    scanf("%d",&year);  
+  
+    
+    if(year%4==0){  
+  
+        if(year%100!=0){  
+            /* 可被4整除, 但不被100整除, 閏年 */
+            printf("Bissextile Year\n");  
+        }  
+        else{  
+            if(year%400==0){  
+            /* 每400年再閏 */
+                printf("Bissextile Year\n");  
+            }  
+            else{  
+             /* 每100年不閏 */
+                printf("Common Year\n");  
+            }  
+        }  
+  
+    }  
+    else{  
+        /* 不可被4整除,平年 */
+        printf("Common Year\n");  
+    }  
+  
+}  
+  
+  return 0;  
+} 
