@@ -1,0 +1,37 @@
+#include<stdio.h>  
+#include<string.h>  
+  
+  
+int main(){  
+  int n,i,j;  
+  /* 有n筆測資 */
+  scanf("%d",&n);  
+  
+  for(i=0;i<n;i++){  
+  
+      int N,M;  
+      /* N代表洞穴一開始有多少人, M代表每次要進入洞穴的人數 */
+      scanf("%d%d",&N,&M);  
+  
+      while(1){
+        /* 每天早上會有3/4的人(無條件進位)離開洞穴 */
+        if(N%4!=0){  
+          N = N - 3*N/4 - 1;  
+        }  
+        else{  
+          N = N/4;  
+        }  
+        
+        /* 當洞穴內的人數<進入洞穴的人數, 則不能再有人進入, 也不會有人再離開 */
+        if(M>N)  
+            break;  
+        N += M;  
+  
+      }  
+      /* 最後洞穴內的人數 */
+      printf("%d\n",N);  
+  
+  }  
+  
+  return 0;  
+}  
