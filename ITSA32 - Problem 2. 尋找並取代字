@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<string.h>
+
+
+int main(){
+
+  char line[128],word1[30],word2[30];
+ 
+  /* 讀入句子 */
+  fgets(line,128,stdin);  
+
+  /* 讀入要尋找的字串 */
+  scanf("%s",word1);
+  
+  /* 取代word1的字串 */
+  scanf("%s",word2);
+
+  int len;
+  char *ptr,*qtr;
+  
+  /* qtr指向句子開頭 */
+  qtr = line;  
+  len = strlen(word1);
+  
+  /* 若句子中已經找不到word1,則跳出迴圈 */
+  while((ptr = strstr(qtr,word1))!=NULL){
+  
+       /* 印出qtr到ptr前的字元 */
+        for(;qtr!=ptr;qtr++)
+            printf("%c",*qtr);
+
+       /* 印出取代word1的字串 */
+        printf("%s",word2);
+
+       /* qtr前進,繼續尋找之後是否有word1 */ 
+        qtr += len;
+  }
+
+  /* 把剩下的句子印出來 */
+  printf("%s",qtr);
+
+  return 0;
+}
