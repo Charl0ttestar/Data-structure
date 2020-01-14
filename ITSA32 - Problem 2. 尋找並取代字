@@ -12,7 +12,7 @@ int main(){
   /* 讀入要尋找的字串 */
   scanf("%s",word1);
   
-  /* 取代word1的字串 */
+  /* 讀入取代word1的字串 */
   scanf("%s",word2);
 
   int len;
